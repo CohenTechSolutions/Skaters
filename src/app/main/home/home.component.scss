@@ -1,0 +1,124 @@
+.secao{
+    height: 100vh;
+    padding: 2rem 4rem;
+    width: 100vw;
+    display: table;
+    .btn{
+        border-radius: 30px;
+        padding: 5px 30px;
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .secao{
+        padding: 1rem 2rem;
+    }
+}
+
+.landing{
+    background: url("../../../assets/imgs/landing/fundoLanding.png");
+    background-size: cover;
+    .corpo{
+        display: table-cell;
+        vertical-align: middle;
+        p{
+            width: 50%;
+            color: white;
+            font-size: 2rem;
+        }
+        h1{
+            color: white;
+            font-size: 11rem;
+        }
+    
+        h2{
+            color: white;
+            font-size: 4rem;
+        }
+        .button-div{
+            .btn{
+                background-color: white;
+                color: black;
+            }
+        }  
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .landing{
+        background: black;
+        background-size: auto;
+        background-image: none;
+        .corpo{
+            h1{
+                text-align: center;
+                font-size: 16vw;
+            }
+            p{
+                text-align: center;
+                width: 100%;
+                font-size: 22px;
+            }
+            .button-div{
+                text-align: center;
+                margin-top: 40px;
+                .btn{
+                    font-size: 10vw;
+                    border-radius: 34px;
+                }
+            }
+
+        }
+    }
+}
+
+.aulas{
+    background-color: black;
+    .corpo{
+        text-align: center;
+        padding-top: 5rem;
+        display: table-cell;
+        vertical-align: middle;
+        img{
+            width: 50%;
+        }
+        p{
+            font-size: 2rem;
+            color: white;
+        }
+        h2{
+            font-size: 7rem;
+            color: white;
+        }
+        .button-div{
+            .btn{
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 850px) {
+   .aulas{
+       .corpo{
+           img{
+               width: 100%;
+           }
+           h2{
+               font-size: 4rem;
+           }
+           p{
+            font-size: 1.5rem;
+           }
+           .button-div{
+               text-align: center;
+               .btn{
+                   font-size: 10vw;
+               }
+           }
+       }
+   }
+}
+
