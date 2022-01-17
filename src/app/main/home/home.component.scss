@@ -3,20 +3,24 @@
     padding: 2rem 4rem;
     width: 100vw;
     display: table;
+    h1{
+        font-size: 4rem;
+    }
     .btn{
         border-radius: 30px;
-        padding: 5px 30px;
+        padding: 5px 40px;
         font-size: 2rem;
+        font-weight: 600;
     }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 720px) {
     .secao{
         padding: 1rem 2rem;
     }
 }
 
-.landing{
+.banner{
     background: url("../../../assets/imgs/landing/fundoLanding.png");
     background-size: cover;
     .corpo{
@@ -45,8 +49,8 @@
     }
 }
 
-@media only screen and (max-width: 850px) {
-    .landing{
+@media only screen and (max-width: 720px) {
+    .banner{
         background: black;
         background-size: auto;
         background-image: none;
@@ -74,10 +78,9 @@
 }
 
 .aulas{
-    background-color: black;
+    background-color: white;
     .corpo{
         text-align: center;
-        padding-top: 5rem;
         display: table-cell;
         vertical-align: middle;
         img{
@@ -85,22 +88,39 @@
         }
         p{
             font-size: 2rem;
-            color: white;
+            color: black;
         }
         h2{
             font-size: 7rem;
-            color: white;
+            color: black;
         }
         .button-div{
+            margin-top: 10px;
             .btn{
-                background-color: white;
-                color: black;
+                background-color: black;
+                color: white;
             }
+        }
+    }
+    .card{
+        background-color: black;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 10px;
+        i{
+            color: white;
+            font-size: 4rem;
+        }
+        p{
+            text-align: center;
+            padding: 0 10px;
+            color: white;
+            font-size: 1rem;
         }
     }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 720px) {
    .aulas{
        .corpo{
            img{
@@ -120,5 +140,63 @@
            }
        }
    }
+}
+
+.loja{
+    background-image: url(../../../assets/imgs/loja/fundo.png);
+    background-size: cover;
+    .corpo{
+        margin-left: 50%;
+        width: 50%;
+        h1{
+            font-size: 5.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        p{
+            font-size: 2.5rem;
+            text-align: end;
+        }
+        .btn{
+            background-color: black;
+            color: white;
+        }
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .loja{
+        background-image: none;
+        background-color: white;
+        .corpo{
+            margin: 0;
+            width: 100%;
+            p{
+                text-align: center;
+            }
+            h1{
+                font-size: 4rem;
+            }
+        }
+    }
+}
+
+.sobre{
+    background-color: #f2f2f2;
+    .corpo{
+        text-align: center;
+
+        .btn{
+            background-color: black;
+            color: white;
+        }
+        h1{
+            font-size: 7rem;
+        }
+        p{
+            font-size: 2rem;
+            padding: 0 25%;
+        }
+    }
 }
 

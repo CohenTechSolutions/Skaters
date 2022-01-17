@@ -9,7 +9,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class HomeComponent implements OnInit {
 
   modalRef?: BsModalRef;
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService,) { }
 
   ngOnInit(): void {
   }
