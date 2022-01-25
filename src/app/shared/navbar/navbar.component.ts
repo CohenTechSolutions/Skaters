@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, TemplateRef } from '@angular/core';
+import { Component, Inject, Input, OnInit, TemplateRef } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
@@ -9,6 +9,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class NavbarComponent implements OnInit {
 
   modalRef?: BsModalRef;
+  @Input() component: string;
   constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {

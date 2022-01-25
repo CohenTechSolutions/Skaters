@@ -11,12 +11,14 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 
 import { HomeComponent } from './main/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { AulasComponent } from './main/aulas/aulas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    AulasComponent
   ],
   imports: [
     BrowserModule,

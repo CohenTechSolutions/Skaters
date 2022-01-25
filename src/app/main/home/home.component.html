@@ -1,4 +1,4 @@
-<navbar></navbar>
+<navbar [component]="'landing'"></navbar>
 <section class="secao aulas" id="aulas">
     <div class="corpo">
         <img src="../../../assets/imgs/aulas/skate.png">
@@ -31,7 +31,7 @@
             </a>
         </div>
         <div class="button-div">        
-            <button class="btn">Saiba Mais</button>
+            <button class="btn"><a routerLink="aulas">Saiba Mais</a></button>
         </div>
     </div>
 </section>

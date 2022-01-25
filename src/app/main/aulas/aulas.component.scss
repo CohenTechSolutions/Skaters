@@ -1,0 +1,55 @@
+.video{
+    text-align: center;
+    h1{
+        font-size: 8.5rem;
+        font-family: fantasy;
+        color: black;
+    }
+
+    iframe{
+        width: 80vw;
+        height: 45vw;
+        
+    }
+    p{
+        font-size: 2rem;
+        width: 80vw;
+        margin-left: 128px;
+    }
+    @media only screen and (max-width: 720px) {
+        iframe{
+            width: auto;
+            height: auto;
+        }
+    }
+}
+
+.card{
+    text-align: center;
+    padding: 0 20px;
+    border: none;
+
+    h1{
+        font-family: system-ui;
+        font-size: 3.5rem;
+        color: black;
+        font-weight: 700;
+    }
+    p{
+        font-size: 1.5rem;
+    }
+}
+
+.fundo{
+    text-align: center;
+    button{
+        color: white;
+        background-color: black;
+        border-radius: 30px;
+        padding: 5px 40px;
+        font-size: 2rem;
+        font-weight: 600;
+        border: none;
+
+    }
+}
