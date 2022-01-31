@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { take } from 'rxjs/operators';
 import { LoginPublico } from '../models/LoginPublico';
 import { Cadastro } from '../models/Cadastros';
+import { LoginNovo } from '../models/LoginNovo';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,11 @@ export class HttpService {
   }
 
   deletarLogin(id: number){
-    return this.http.delete(this.url + id).pipe(take(1));
+    return this.http.delete(this.url + "login/" + id).pipe(take(1));
+  }
+
+  editarLogin(login: LoginNovo){
+    return this.http.put(this.url+"login", login).pipe(take(1));
   }
 
   listarCadastros(){

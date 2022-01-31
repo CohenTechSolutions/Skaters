@@ -1,8 +1,8 @@
 export class LoginPublico{
     constructor(){
-        this.Id  = 0;
-        this.Usuario = "";
+        this.id  = 0;
+        this.usuario = "";
     }
-    Id: number;
-    Usuario: string;
+    id: number;
+    usuario: string;
 }

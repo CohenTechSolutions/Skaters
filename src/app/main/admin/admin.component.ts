@@ -4,6 +4,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { Cadastro } from 'src/app/models/Cadastros';
 import { Login } from 'src/app/models/Login';
+import { LoginNovo } from 'src/app/models/LoginNovo';
 import { LoginPublico } from 'src/app/models/LoginPublico';
 import { HttpService } from 'src/app/services/http.service';
 
@@ -14,8 +15,9 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class AdminComponent implements OnInit {
   cadastros: Cadastro[];
-  cadastroSelecionado: Cadastro;
-  loginSelecionado: Login;
+  cadastroSelecionado: Cadastro = new Cadastro();
+  loginSelecionado: Login = new Login();
+  loginNovo: LoginNovo = new LoginNovo();
   logins: LoginPublico[];
   isLoading: boolean = true;
   modalRef?: BsModalRef;
@@ -46,26 +48,78 @@ export class AdminComponent implements OnInit {
   }
 
   editarCadastro(){
+    this.acaoLoading = true;
     this._service.editarCadastro(this.cadastroSelecionado, this.cadastroSelecionado.id).subscribe(response =>{
       if(response){
+        this.acaoLoading = false;
         this.getInfo();
         this.closeModal();
       }
     })
   }
 
-  openModal(template: TemplateRef<any>, i: number){
-    if(this.staticTabs?.tabs[0].active){
-      this.cadastroSelecionado = this.cadastros[i];
-    }else{
-      this.loginSelecionado.Id = i+1;
-      this.loginSelecionado.Usuario = this.logins[i].Usuario;
+  deletarCadastro(){
+    this.acaoLoading = true;
+    this._service.deletarCadastro(this.cadastroSelecionado.id).subscribe(response => {
+      this.acaoLoading = false;
+      this.getInfo();
+      this.closeModal();
+    })
+  }
+
+  criarCadastro(){
+    this.acaoLoading = true;
+    this._service.criarCadastros(this.cadastroSelecionado).subscribe(response =>{
+      this.acaoLoading = false;
+      this.getInfo();
+      this.closeModal();
+    })
+  }
+
+  criarLogin(){
+    this.acaoLoading = true;
+    this._service.criarLogin(this.loginSelecionado).subscribe(response =>{
+      this.acaoLoading = false;
+      this.getInfo();
+      this.closeModal();
+    })
+  }
+
+  editarLogin(){
+    this.loginNovo.usuario = this.loginSelecionado.usuario;
+    this.acaoLoading = true;
+    this._service.editarLogin(this.loginNovo).subscribe(response =>{
+      this.acaoLoading = false;
+      this.getInfo();
+      this.closeModal();
+    })
+  }
+
+  deletarLogin(){
+    this.acaoLoading = true;
+    this._service.deletarLogin(this.loginSelecionado.id).subscribe(response =>{
+      this.acaoLoading = false;
+      this.getInfo();
+      this.closeModal();
+    })
+  }
+
+  openModal(template: TemplateRef<any>, i?: number){
+    if(i != undefined){
+      if(this.staticTabs?.tabs[0].active){
+        this.cadastroSelecionado = this.cadastros[i];
+      }else{
+        this.loginSelecionado.id = i+1;
+        this.loginSelecionado.usuario = this.logins[i].usuario;
+      }
     }
     this.modalRef = this.modalService.show(template);
   }
 
   closeModal(){
     this.modalService.hide();
+    this.cadastroSelecionado = new Cadastro();
+    this.loginSelecionado = new LoginNovo();
   }
 
 }

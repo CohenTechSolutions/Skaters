@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     if("logged" in sessionStorage){
       this.logado = true;
-      this.credenciais.Usuario = sessionStorage.getItem("logged");
+      this.credenciais.usuario = sessionStorage.getItem("logged");
     }
   }
 
@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
       this.isLoading = false;
       if(response){
         this.modalService.hide();
-        sessionStorage.setItem("logged", this.credenciais.Usuario);
+        sessionStorage.setItem("logged", this.credenciais.usuario);
         this.route.navigate(["admin"]);
       }else{
         this.erroLogin = true;
