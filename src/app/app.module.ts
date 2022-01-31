@@ -12,7 +12,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { HomeComponent } from './main/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AulasComponent } from './main/aulas/aulas.component';
@@ -34,7 +34,8 @@ import { AdminComponent } from './main/admin/admin.component';
     BsDropdownModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    TabsModule.forRoot()
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent]

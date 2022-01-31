@@ -1,1 +1,112 @@
-<p>admin works!</p>
+<navbar [component]="'navigate'"></navbar>
+<div class="corpo">
+    <tabset #info>
+      <tab heading="Cadastros" id="tab1">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tr>
+              <th>
+                #
+              </th>
+              <th>
+                Nome
+              </th>
+              <th>
+                Email
+              </th>
+              <th>
+                Telefone
+              </th>
+              <th>
+  
+              </th>
+            </tr>
+            <tr *ngFor="let cadastro of cadastros; let i = index">
+              <td>
+                {{i + 1}}
+              </td>
+              <td>
+                {{cadastro.nome}}
+              </td>
+              <td>
+                {{cadastro.email}}
+              </td>
+              <td>
+                {{cadastro.telefone}}
+              </td>
+              <td>
+                <button class="btn btn-danger">
+                  Deletar
+                </button>
+                <button class="btn btn-warning" (click)="openModal(templateEditar, i)">
+                  Editar
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </tab>
+      <tab heading="Administradores">
+        <table class="table table-striped">
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Nome
+            </th>
+            <th>
+            </th>
+          </tr>
+          <tr *ngFor="let admin of logins; let i = index">
+            <td>
+              {{i+1}}
+            </td>
+            <td>
+              {{admin.usuario}}
+            </td>
+            <td>
+              <button class="btn btn-danger">
+                Deletar
+              </button>
+            </td>
+          </tr>
+        </table>
+      </tab>
+    </tabset>
+  </div>
+
+  <ng-template #templateEditar>
+    <div class="modal-header">
+        <h5 class="modal-title">Deseja Editar o Cadastro do {{cadastroSelecionado.nome}}?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form (keyup.enter)="editarCadastro()">
+            <div class="row">
+                <div class="col-sm-4">
+                  <label for="nome">Nome</label>
+                    <input type="text" class="form-control" id="nome" [(ngModel)]="cadastroSelecionado.nome" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="col-sm-4">
+                  <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" [(ngModel)]="cadastroSelecionado.email" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="col-sm-4">
+                  <label for="telefone">Telefone</label>
+                  <input type="text" class="form-control" id="telefone" [(ngModel)]="cadastroSelecionado.telefone" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="editarCadastro()">
+            <span *ngIf="!acaoLoading">Editar</span>
+            <div class="spinner-border spinner-border-sm text-light" role="status" *ngIf="acaoLoading">
+            <span class="sr-only">Loading...</span>
+          </div></button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Fechar</button>
+      </div>
+</ng-template>

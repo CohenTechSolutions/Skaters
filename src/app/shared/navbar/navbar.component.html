@@ -58,7 +58,7 @@
     </div>
 </nav>
 
-<!--Aulas-->
+<!--Navigate-->
 <nav class="navbar navbar-expand-md" *ngIf="component == 'navigate'">
     <a class="navbar-brand" routerLink="">Navbar</a>
     <button (click)="openModal(template)" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -75,9 +75,27 @@
             <li class="nav-item">
                 <a class="nav-link" (click)="scroll('loja')">Loja</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="login">Acessar</a>
+            <li class="nav-item" *ngIf="!logado">
+                <a class="nav-link" (click)="openModal(templateAccess)">Acessar</a>
             </li>
+            <li class="nav-item dropdown" *ngIf="logado">
+                <div class="btn-group" dropdown>
+                    <button type="button" dropdownToggle class="btn dropdown-toggle">
+                      <span>{{credenciais.Usuario}}</span> <i-bs name="person-square" width="1.25rem" height="1.25rem"></i-bs> <i-bs name="chevron-down" width=".65rem" height=".65rem" class="seta"></i-bs>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" *dropdownMenu>
+                      <!--<li role="menuitem">
+                        <button type="button" title="Trocar o tema" class="btn" (click)="tema()">Trocar o tema</button>
+                      </li>-->
+                      <li role="menuitem" class="dropdown-item">
+                        <button type="button" title="Sair" class="btn" (click)="admin()">Admin</button>
+                      </li>
+                      <li role="menuitem" class="dropdown-item">
+                        <button type="button" title="Sair" class="btn" (click)="logOut()">Sair</button>
+                      </li>
+                    </ul>
+                  </div>
+              </li>
         </ul>
     </div>
 </nav>
@@ -123,7 +141,7 @@
         <div>
             <p>Preencha abaixo as informações de login de administrador para acessar o painel</p>
         </div>
-        <form (submit)="login()">
+        <form (keyup.enter)="login()">
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="credenciais.Usuario" [ngModelOptions]="{standalone: true}">
