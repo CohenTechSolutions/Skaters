@@ -211,3 +211,28 @@
     }
 }
 
+@media only screen and (max-width: 720px){
+    .sobre{
+        .corpo{
+            p{
+                padding: 0;
+            }
+        }
+    }
+}
+
+.voltar{
+    position: absolute;
+    border-radius: 50%;
+    color: black;
+    background-color: white;
+    font-size: 4rem;
+    position: fixed;
+    left: 50px;
+    padding: 0 15px;
+    bottom: 50px;
+}
+
+.voltar:hover{
+    cursor: pointer;
+}

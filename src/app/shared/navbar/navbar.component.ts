@@ -34,6 +34,7 @@ export class NavbarComponent implements OnInit {
 
   scroll(elementId: string): void {
     document.getElementById(elementId).scrollIntoView({ behavior: "smooth" });
+    this.closeModal();
   }
 
   login() {

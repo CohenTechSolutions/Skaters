@@ -1,6 +1,11 @@
 swiper{
     max-width: 70vw;
     padding-left: 10%;
+    padding-bottom: 35px;
+}
+
+a{
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 750px) {
@@ -15,6 +20,7 @@ swiper{
     text-align: center;
     margin-top: 10px;
     width: 240px;
+    height: 220px;
     i{
         color: white;
         font-size: 4rem;

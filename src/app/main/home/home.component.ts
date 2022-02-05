@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+  scroll(elementId: string): void {
+    document.getElementById(elementId).scrollIntoView({ behavior: "smooth" });
+  }
+
 }
