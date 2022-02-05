@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { SwiperModule } from 'swiper/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { HomeComponent } from './main/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AulasComponent } from './main/aulas/aulas.component';
 import { AdminComponent } from './main/admin/admin.component';
+import { SliderComponent } from './shared/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AdminComponent } from './main/admin/admin.component';
     HomeComponent,
     NavbarComponent,
     AulasComponent,
-    AdminComponent
+    AdminComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { AdminComponent } from './main/admin/admin.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    SwiperModule
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent]

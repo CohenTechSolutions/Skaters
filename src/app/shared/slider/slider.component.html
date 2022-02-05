@@ -1,0 +1,39 @@
+<swiper id="slide" [slidesPerView]="numeroPorSlide" [spaceBetween]="50" [navigation]="{}" [pagination]="{clickable : true}"
+    [scrollbar]="{ draggable: true }" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
+    <ng-template swiperSlide>
+        <a>
+            <div class="card">
+                <i class="bi bi-cash"></i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+        </a>
+    </ng-template>
+    <ng-template swiperSlide>
+        <a>
+        <div class="card">
+            <i class="bi bi-cash"></i>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna aliqua.</p>
+        </div>
+    </a>
+</ng-template>
+    <ng-template swiperSlide>
+        <a>
+            <div class="card">
+                <i class="bi bi-cash"></i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+        </a>
+    </ng-template>
+    <ng-template swiperSlide>
+        <a>
+            <div class="card">
+                <i class="bi bi-cash"></i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+        </a>
+    </ng-template>
+</swiper>
