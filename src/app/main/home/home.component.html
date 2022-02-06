@@ -1,11 +1,15 @@
-<navbar [component]="'landing'"></navbar>
+<navbar [component]="'landing'" id="nav"></navbar>
+<button style="display: none;" id="abrirPopUp" (click)="openPopUp(popUp)">
+
+</button>
 <section class="secao aulas" id="aulas">
     <div class="corpo">
         <img src="../../../assets/imgs/aulas/skate.png">
         <h1>Aulas de skate</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua.</p>
         <slider></slider>
-        <div class="button-div">        
+        <div class="button-div">
             <button class="btn"><a routerLink="aulas">Saiba Mais</a></button>
         </div>
     </div>
@@ -13,8 +17,10 @@
 <section class="secao banner" id="banner">
     <div class="corpo">
         <h1>3Sskaters</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class="button-div">        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat.</p>
+        <div class="button-div">
             <button class="btn">Saiba mais</button>
         </div>
     </div>
@@ -22,7 +28,8 @@
 <section class="secao loja" id="loja">
     <div class="corpo">
         <h1>Loja 3S</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua.</p>
         <div style="text-align: center;">
             <button class="btn">
                 Saiba mais
@@ -32,13 +39,150 @@
 </section>
 <section class="secao sobre" id="sobre">
     <div class="corpo">
-        <h1>Sobre o canal</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <button class="btn">
-            Saiba mais
-        </button>
+        <h1>Sobre o 3S</h1>
+        <p>Conheça mais sobre como começou o 3S e como tivemos a ideia de vendermos aulas de skate.</p>
+        <a routerLink="sobre">
+            <button class="btn">
+                Saiba mais
+            </button>
+        </a>
+
     </div>
 </section>
-<div class="voltar" (click)="scroll('aulas')">
+<section class="secao rodape">
+    <div class="row">
+        <div class="col-md-4" id="preenchimento">
+
+        </div>
+        <div class="col-md-4 icones">
+            <ul>
+                <li>
+                    <a class="nav-link" href="#"><i class="bi bi-youtube"></i></a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#"><i class="bi bi-tiktok"></i></a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#"><i class="bi bi-instagram"></i></a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#"><i class="bi bi-facebook"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <p (click)="openModal(templateAccess)" *ngIf="!logado">Acessar</p>
+        </div>
+
+    </div>
+</section>
+<div class="voltar" (click)="scroll('nav')">
     <i class="bi bi-arrow-up"></i>
 </div>
+
+<ng-template #templateAccess>
+    <div class="modal-header">
+        <h5 class="modal-title">Para acessar o painel de administrador, precisa realizar o login.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            <p>Preencha abaixo as informações de login de administrador para acessar o painel</p>
+        </div>
+        <form (keyup.enter)="login()">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="credenciais.usuario"
+                        [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="col">
+                    <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="credenciais.senha"
+                        [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+        </form>
+        <div *ngIf="erroLogin" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Falha!</strong> Usuário ou senha incorretos
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="fecharAlert()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="login()">
+            <span *ngIf="!isLoading">Acessar</span>
+            <div class="spinner-border spinner-border-sm text-light" role="status" *ngIf="isLoading">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Fechar</button>
+    </div>
+</ng-template>
+
+<ng-template #popUp>
+    <div class="modal-body popUp">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="row">
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-8">
+                <div>
+                    <h5>BEM VINDO A 3SSKATERS</h5>
+                </div>
+                <p>Preencha os campos abaixo para receber anúncios e ofertas especiais da 3S!</p>
+                <form (keyup.enter)="login()">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="nome">Nome Completo:</label>
+                        </div>
+                        <div class="col-sm-9 campo">
+                            <input name="nome" type="text" class="form-control" placeholder="Usuario"
+                                [(ngModel)]="cadastro.nome" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="nome">Email:</label>
+                        </div>
+                        <div class="col-sm-9 campo">
+                            <input name="nome" type="text" class="form-control" placeholder="Usuario"
+                                [(ngModel)]="cadastro.email" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="nome">Telefone:</label>
+                        </div>
+                        <div class="col-sm-9 campo">
+                            <input name="nome" type="text" class="form-control" placeholder="Usuario"
+                                [(ngModel)]="cadastro.telefone" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="col-sm-12">
+                            <p>Ao clicar em confirmar, você concorda em receber por email ou por telefone anúncios de
+                                ofertas e descontos da 3S.</p>
+                        </div>
+                        <div *ngIf="erroLogin" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            Ja existe um cadastro com mesmo email ou telefone.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="fecharAlert()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="col-sm-12">
+                            <button (click)="cadastrar()" class="btn btn-primary">
+                                <span *ngIf="!isLoading">
+                                    Confirmar
+                                </span>
+                                <div class="spinner-border spinner-border-sm text-light" role="status"
+                                    *ngIf="isLoading">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</ng-template>

@@ -18,6 +18,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AulasComponent } from './main/aulas/aulas.component';
 import { AdminComponent } from './main/admin/admin.component';
 import { SliderComponent } from './shared/slider/slider.component';
+import { SobreComponent } from './main/sobre/sobre.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SliderComponent } from './shared/slider/slider.component';
     NavbarComponent,
     AulasComponent,
     AdminComponent,
-    SliderComponent
+    SliderComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,

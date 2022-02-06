@@ -1,6 +1,6 @@
 <!--landing page-->
 <nav class="navbar navbar-expand-md" *ngIf="component == 'landing'">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#"><img src="../../../assets/imgs/logo.png"></a>
     <button (click)="openModal(templateHome)" class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarNav">
         <i class="bi bi-justify" style="color: white; font-size: 2rem;"></i>
@@ -17,9 +17,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" (click)="scroll('sobre')">Sobre o 3S</a>
-            </li>
-            <li class="nav-item" *ngIf="!logado">
-                <a class="nav-link" (click)="openModal(templateAccess)">Acessar</a>
             </li>
             <li class="nav-item dropdown" *ngIf="logado">
                 <div class="btn-group" dropdown>
@@ -57,12 +54,12 @@
 
 <!--Navigate-->
 <nav class="navbar navbar-expand-md" *ngIf="component == 'navigate'">
-    <a class="navbar-brand" routerLink="">Navbar</a>
-    <button (click)="openModal(template)" class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#navbarNav">
-        <i class="bi bi-justify" style="color: white; font-size: 2rem;"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div style="text-align: center; width: 100%;">
+        <a class="navbar-brand" routerLink=""><img src="../../../assets/imgs/logo.png"></a>
+
+    </div>
+
+    <!-- <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
         </ul>
         <ul class="navbar-nav">
@@ -70,10 +67,7 @@
                 <a class="nav-link" routerLink="aulas">Aulas de Skate</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="scroll('loja')">Loja</a>
-            </li>
-            <li class="nav-item" *ngIf="!logado">
-                <a class="nav-link" (click)="openModal(templateAccess)">Acessar</a>
+                <a class="nav-link" routerLink="sobre">Sobre</a>
             </li>
             <li class="nav-item dropdown" *ngIf="logado">
                 <div class="btn-group" dropdown>
@@ -81,9 +75,6 @@
                       <span>{{credenciais.usuario}}</span> <i-bs name="person-square" width="1.25rem" height="1.25rem"></i-bs> <i-bs name="chevron-down" width=".65rem" height=".65rem" class="seta"></i-bs>
                     </button>
                     <ul class="dropdown-menu" role="menu" *dropdownMenu>
-                      <!--<li role="menuitem">
-                        <button type="button" title="Trocar o tema" class="btn" (click)="tema()">Trocar o tema</button>
-                      </li>-->
                       <li role="menuitem" class="dropdown-item">
                         <button type="button" title="Sair" class="btn" (click)="admin()">Admin</button>
                       </li>
@@ -94,7 +85,7 @@
                   </div>
               </li>
         </ul>
-    </div>
+    </div> -->
 </nav>
 
 <ng-template #templateHome>
@@ -115,6 +106,18 @@
             <div class="card">
                 <i class="bi bi-card-list"></i>
                 <p>Sobre o 3S</p>
+            </div>
+        </a>
+        <a class="col-6" routerLink="admin" (click)="closeModal()" *ngIf="logado" style="text-decoration: none; color: #343a40;">
+            <div class="card">
+                <i class="bi bi-person-circle"></i>
+                <p>Admin</p>
+            </div>
+        </a>
+        <a class="col-6" (click)="logOut()" *ngIf="logado">
+            <div class="card">
+                <i class="bi bi-door-open-fill"></i>
+                <p>Sair</p>
             </div>
         </a>
 
