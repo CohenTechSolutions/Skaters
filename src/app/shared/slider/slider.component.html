@@ -1,7 +1,7 @@
 <swiper id="slide" [slidesPerView]="numeroPorSlide" [spaceBetween]="50" [navigation]="{}" [pagination]="{clickable : true}"
     [scrollbar]="{ draggable: true }" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
     <ng-template swiperSlide>
-        <a href="https://api.whatsapp.com/send?phone=995971212&text=bom dia, gostaria de comprar o plano 1.">
+        <a (click)="openModal(compra)">
             <div class="card">
                 <i class="bi bi-cash"></i>
                 <p>Plano 1.</p>
@@ -37,3 +37,16 @@
         </a>
     </ng-template>
 </swiper>
+
+<ng-template #compra>
+    <div class="modal-header">
+        <h5 class="modal-title">Escolha como gostaria de realizar a compra</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <compra></compra>
+    </div>
+        
+</ng-template>

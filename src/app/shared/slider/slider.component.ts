@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 import SwiperCore, {
   Navigation,
@@ -16,8 +17,9 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 })
 export class SliderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: BsModalService) { }
   numeroPorSlide = 3;
+  modalRef?: BsModalRef;
 
   ngOnInit(): void {
     if(screen.width <= 750){
@@ -28,6 +30,14 @@ export class SliderComponent implements OnInit {
   onSwiper(swiper: any) {
   }
   onSlideChange() {
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  closeModal(){
+    this.modalService.hide();
   }
 
 }

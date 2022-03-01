@@ -19,6 +19,7 @@ import { AulasComponent } from './main/aulas/aulas.component';
 import { AdminComponent } from './main/admin/admin.component';
 import { SliderComponent } from './shared/slider/slider.component';
 import { SobreComponent } from './main/sobre/sobre.component';
+import { CompraComponent } from './shared/compra/compra.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SobreComponent } from './main/sobre/sobre.component';
     AulasComponent,
     AdminComponent,
     SliderComponent,
-    SobreComponent
+    SobreComponent,
+    CompraComponent
   ],
   imports: [
     BrowserModule,
