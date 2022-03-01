@@ -3,7 +3,9 @@ export class Pagamento {
         this.reference_id = "ex-00001";
         this.description = "Compra na loja da 3S";
         this.amount = new Amount();
-        this.payment_method = new PaymentMethod()
+        this.payment_method = new PaymentMethod();
+        this.notification_urls = [ "https://yourserver.com/nas_ecommerce/277be731-3b7c-4dac-8c4e-4c3f4a1fdc46/"];
+        this.metadata = new Metadata();
     }
     reference_id: string;
     description: string;
@@ -15,7 +17,7 @@ export class Pagamento {
 
 export class Amount {
     constructor(){
-        this.value = 100;
+        this.value = 1000;
         this.currency = "BRL"
     }
     value: number;
@@ -59,7 +61,12 @@ export class PaymentMethod {
     card: Card;
 }
 
-export interface Metadata {
+export class Metadata {
+    constructor(){
+        this.Exemplo = "Aceita qualquer informação";
+        this.NotaFiscal = "123",
+        this.idComprador = "123456"
+    }
     Exemplo: string;
     NotaFiscal: string;
     idComprador: string;

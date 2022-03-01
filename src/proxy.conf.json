@@ -1,0 +1,8 @@
+{
+  "/pagseguro": {
+      "target": "https://sandbox.api.pagseguro.com/charges",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+  }
+}
